@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Calango Digital – Aplicativos, jogos e sites</title>
+<meta name="description" content="Calango Digital: soluções em aplicativos e inovação. Acesse nossos apps, jogos e sites.">
+<meta name="theme-color" content="#061a45">
+<link rel="icon" href="logo.png">
+<style>
+:root{--bg:#061a45;--bg2:#0a2a6b;--blue:#1f6fc9;--cyan:#3fd0ff;--ink:#eaf2ff;--mute:#9db6de;--card:#0d2559;--line:#1d3d82;--wa:#18b35a}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1rem/1.55 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;overflow-x:hidden}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--cyan);outline-offset:3px}
+.w{max-width:1000px;margin:0 auto;padding:0 20px}
+nav{position:sticky;top:0;z-index:20;background:rgba(6,26,69,.82);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(63,208,255,.15)}
+nav .w{display:flex;align-items:center;justify-content:space-between;height:60px}
+.marca{display:flex;align-items:center;gap:10px;font-weight:800;text-decoration:none}
+.marca img{width:36px;height:36px;border-radius:10px;background:#fff;object-fit:cover}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 24px;border-radius:14px;border:0;font:700 1rem/1 inherit;text-decoration:none;cursor:pointer;color:#04153a;background:linear-gradient(135deg,var(--cyan),#8be3ff);box-shadow:0 8px 28px -8px rgba(63,208,255,.7);transition:transform .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn.vz{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 2px var(--line)}
+.btn.sm{min-height:40px;padding:0 16px;font-size:.9rem;background:var(--wa);color:#fff;box-shadow:none}
+.hero{position:relative;padding:44px 0 56px;overflow:hidden}
+#rede{position:absolute;inset:0;width:100%;height:100%;z-index:0}
+.hero .w{position:relative;z-index:1;display:grid;gap:28px}
+.logo{width:min(210px,52vw);aspect-ratio:1;border-radius:34px;background:#fff;box-shadow:0 0 0 6px rgba(63,208,255,.18),0 24px 70px -10px rgba(63,208,255,.55);animation:flut 6s ease-in-out infinite}
+.logo img{width:100%;height:100%;display:block;border-radius:34px}
+@keyframes flut{50%{transform:translateY(-10px) rotate(-2deg)}}
+h1{margin:0;font-size:clamp(2rem,8.4vw,3.6rem);line-height:1.08;font-weight:800;letter-spacing:-.025em}
+.troca{display:inline-block;color:var(--cyan);min-width:3ch;transition:opacity .3s,transform .3s}
+.troca.sai{opacity:0;transform:translateY(12px)}
+.lead{margin:0;max-width:34ch;color:var(--mute);font-size:1.1rem}
+.acoes{display:flex;gap:12px;flex-wrap:wrap}
+.nums{display:flex;gap:10px;flex-wrap:wrap}
+.nums div{padding:10px 16px;border-radius:14px;background:rgba(255,255,255,.06);box-shadow:inset 0 0 0 1px rgba(63,208,255,.2)}
+.nums b{display:block;font-size:1.5rem;line-height:1.1}
+.nums span{font-size:.85rem;color:var(--mute)}
+.fita{overflow:hidden;background:var(--cyan);color:#04153a;font-weight:800;padding:12px 0;transform:rotate(-1.2deg);margin:0 -10px}
+.fita div{display:flex;gap:34px;width:max-content;animation:rola 28s linear infinite}
+@keyframes rola{to{transform:translateX(-50%)}}
+section{padding:56px 0 8px}
+h2{margin:0 0 6px;font-size:clamp(1.6rem,6vw,2.3rem);line-height:1.15;letter-spacing:-.02em}
+.sub{margin:0 0 20px;color:var(--mute)}
+.filtros{display:flex;gap:8px;overflow-x:auto;padding:8px 8px 20px;margin:0 -8px;scrollbar-width:none}
+.filtros::-webkit-scrollbar{display:none}
+.filtros button{flex:none;min-height:44px;padding:0 18px;border-radius:22px;border:0;background:rgba(255,255,255,.07);color:var(--ink);font:600 .95rem/1 inherit;cursor:pointer;transition:background .2s}
+.filtros button:focus-visible{outline-offset:2px}
+.filtros button[aria-pressed=true]{background:var(--cyan);color:#04153a}
+.grade{list-style:none;margin:0;padding:0;display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(290px,1fr))}
+.card{opacity:0;transform:translateY(16px);transition:opacity .6s,transform .6s}
+.card.on{opacity:1;transform:none}
+.tile{display:grid;grid-template-columns:48px 1fr auto;align-items:center;gap:14px;padding:14px 16px;border-radius:16px;background:linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.03));box-shadow:inset 0 0 0 1px rgba(120,170,255,.18);text-align:left;text-decoration:none;animation:bal 6s ease-in-out infinite;animation-delay:var(--d,0s);transition:box-shadow .25s,background .25s}
+@keyframes bal{50%{transform:translateY(-3px)}}
+button.tile:hover,button.tile:focus-visible{box-shadow:inset 0 0 0 1px var(--cyan),0 16px 36px -18px rgba(63,208,255,.6);background:rgba(63,208,255,.08)}
+.ic{width:48px;height:48px;border-radius:13px;display:grid;place-items:center;color:var(--cyan);background:rgba(63,208,255,.1);box-shadow:inset 0 0 0 1px rgba(63,208,255,.28)}
+.ic svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.tx{min-width:0}
+.tile h3{margin:0;font-size:1rem;line-height:1.25;font-weight:650;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.tipo{display:block;margin-top:2px;font-size:.82rem;color:var(--mute)}
+.go{display:flex;align-items:center;gap:4px;font-size:.88rem;font-weight:650;color:var(--cyan)}
+.go svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+div.tile{opacity:.7}
+div.tile .go{color:var(--mute);font-weight:500}
+.fita i{font-style:normal;opacity:.55;margin-left:34px}
+button.tile{font:inherit;color:inherit;border:0;cursor:pointer;width:100%}
+#vis{position:fixed;inset:0;z-index:50;background:var(--bg);display:flex;flex-direction:column}
+#vis[hidden]{display:none}
+.vbar{flex:none;display:flex;align-items:center;gap:12px;min-height:54px;padding:env(safe-area-inset-top) 12px 0;background:var(--bg2);box-shadow:0 1px 0 var(--line)}
+.vbar button{min-height:42px;padding:0 16px;border:0;border-radius:21px;background:var(--cyan);color:#04153a;font:700 .95rem/1 inherit;cursor:pointer}
+.vbar b{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#vf{flex:1;width:100%;border:0;background:#fff}
+body.vo{overflow:hidden}
+.passos{display:grid;gap:12px;counter-reset:p;padding:0;list-style:none;margin:0}
+.passos li{counter-increment:p;padding:18px 18px 18px 64px;border-radius:18px;background:rgba(255,255,255,.05);position:relative}
+.passos li::before{content:counter(p);position:absolute;left:16px;top:16px;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:var(--cyan);color:#04153a;font-weight:800}
+.passos b{display:block}
+.passos span{color:var(--mute)}
+.cta{position:relative;overflow:hidden;margin:56px 0 0;padding:40px 22px;border-radius:28px;text-align:center;background:linear-gradient(135deg,var(--blue),#0b3b8f 60%,#08245c);box-shadow:0 30px 70px -30px rgba(31,111,201,.8)}
+.cta::before{content:"";position:absolute;width:260px;height:260px;right:-90px;top:-110px;border-radius:50%;background:radial-gradient(circle,rgba(63,208,255,.45),transparent 70%)}
+.cta>*{position:relative}
+.cta h2{margin:0}
+.cta p{margin:8px auto 24px;max-width:44ch;color:#d3e4ff}
+.cta-b{display:flex;flex-direction:column;gap:12px;align-items:center}
+.cta-b .btn{width:100%;max-width:340px}
+.cta .btn{background:var(--wa);color:#fff;box-shadow:0 10px 30px -10px rgba(24,179,90,.9)}
+.cta .btn.lig{background:rgba(255,255,255,.12);box-shadow:inset 0 0 0 2px rgba(255,255,255,.35)}
+@media(min-width:700px){.cta-b{flex-direction:row;justify-content:center}.cta-b .btn{width:auto}}
+footer{padding:30px 0 96px;text-align:center;color:var(--mute);font-size:.85rem}
+.zap{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom));z-index:30;width:58px;height:58px;border-radius:50%;background:var(--wa);display:grid;place-items:center;box-shadow:0 10px 30px -6px rgba(0,0,0,.6);animation:pulsa 2.4s infinite}
+@keyframes pulsa{0%{box-shadow:0 0 0 0 rgba(24,179,90,.6),0 10px 30px -6px rgba(0,0,0,.6)}70%,100%{box-shadow:0 0 0 18px rgba(24,179,90,0),0 10px 30px -6px rgba(0,0,0,.6)}}
+@media(min-width:700px){.passos{grid-template-columns:repeat(3,1fr)}.hero .w{grid-template-columns:1fr auto;align-items:center}.hero .logo{grid-column:2;grid-row:1/4;width:230px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.card{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<nav><div class="w">
+  <a class="marca" href="#topo"><img src="logo.png" alt="">Calango Digital</a>
+  <a class="btn sm" href="https://wa.me/5585996461047?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Calango%20Digital." target="_blank" rel="noopener">WhatsApp</a>
+</div></nav>
+
+<header class="hero" id="topo">
+  <canvas id="rede" aria-hidden="true"></canvas>
+  <div class="w">
+    <div class="logo"><img src="logo.png" alt="Calango Digital – Soluções em Aplicativos e Inovação"></div>
+    <h1>Criamos <span class="troca" id="troca">apps</span> que seus clientes usam todo dia</h1>
+    <p class="lead">Aplicativos, jogos e sites sob medida. Acesse tudo o que já criamos aqui.</p>
+    <div class="acoes">
+      <a class="btn" href="#projetos">Ver projetos</a>
+      <a class="btn vz" href="#contato">Quero o meu</a>
+    </div>
+    <div class="nums" id="nums"></div>
+  </div>
+</header>
+
+<div class="fita" aria-hidden="true"><div id="fita"></div></div>
+
+<main class="w">
+  <section id="projetos">
+    <h2>Nossos projetos</h2>
+    <p class="sub">Toque em um projeto para abrir.</p>
+    <div class="filtros" id="filtros" role="group" aria-label="Filtrar projetos"></div>
+    <ul class="grade" id="grade"></ul>
+  </section>
+
+  <section id="como">
+    <h2>Como funciona</h2>
+    <p class="sub">Do WhatsApp ao seu app no ar.</p>
+    <ol class="passos">
+      <li><b>Você conta a ideia</b><span>Pelo WhatsApp, sem complicação.</span></li>
+      <li><b>A gente cria</b><span>Você acompanha e aprova cada parte.</span></li>
+      <li><b>Seu app no ar</b><span>Instala direto no celular, sem loja.</span></li>
+    </ol>
+  </section>
+
+  <section id="contato" class="cta">
+    <h2>Vamos criar o seu?</h2>
+    <p>Chame no WhatsApp e receba uma proposta.</p>
+    <div class="cta-b">
+      <a class="btn" href="https://wa.me/5585996461047?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Calango%20Digital." target="_blank" rel="noopener">Chamar no WhatsApp</a>
+      <a class="btn lig" href="tel:+5585996461047">Ligar (85) 99646-1047</a>
+    </div>
+  </section>
+</main>
+
+<footer>Calango Digital · Soluções em Aplicativos &amp; Inovação<br>© <span id="ano"></span></footer>
+<a class="zap" href="https://wa.me/5585996461047" target="_blank" rel="noopener" aria-label="Chamar no WhatsApp"><svg width="28" height="28" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M4 3h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H9l-5 4v-4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"/></svg></a>
+
+<div id="vis" hidden role="dialog" aria-modal="true" aria-label="Aplicativo aberto"><div class="vbar"><button type="button" id="vx">← Voltar</button><b id="vt"></b></div><iframe id="vf" title="Aplicativo" allow="fullscreen; autoplay; clipboard-write; microphone; camera" referrerpolicy="no-referrer"></iframe></div>
+<script>
+/* ===== EDITE AQUI: um item por projeto =====
+   tipo: "App", "Jogo" ou "Site" | url: endereço ("" = Em breve) */
+var PROJETOS=[
+ {nome:"M&L Lanches",tipo:"App",desc:"Cardápio e pedidos de delivery, com app do cliente e app do lojista.",url:"https://appcalangodigital.github.io/maraisalanches/"},
+ {nome:"Bate-papo",tipo:"App",desc:"Chat em salas em que as mensagens somem sozinhas após 2 minutos.",url:"https://appcalangodigital.github.io/batepapo/"},
+ {nome:"O Cangaceiro do Cuscuz",tipo:"Jogo",desc:"Jogo de aventura com tema nordestino, sanfona e cuscuz.",url:""},
+ {nome:"O Mundo da Yuki",tipo:"Jogo",desc:"Duas meninas e a cachorrinha Yuki numa aventura divertida.",url:""},
+ {nome:"Memocolor",tipo:"Jogo",desc:"Jogo de cores para treinar a memória.",url:""},
+ {nome:"Liloca Patinadora",tipo:"Jogo",desc:"Jogo para jogar direto no celular.",url:"https://appcalangodigital.github.io/berdofortgames_lilocapatinadora/"},
+ {nome:"Detetive dos Pensamentos",tipo:"Jogo",desc:"Dois detetives, nuvens de pensamento e muitos mistérios.",url:""}
+];
+var SETA='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>';
+var IC={App:'<svg viewBox="0 0 24 24"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg>',
+Jogo:'<svg viewBox="0 0 24 24"><path d="M7 8h10a4 4 0 0 1 4 4v1.5a3 3 0 0 1-5.2 2l-1-1.1a2 2 0 0 0-1.5-.7h-2.6a2 2 0 0 0-1.5.7l-1 1.1A3 3 0 0 1 3 13.5V12a4 4 0 0 1 4-4z"/><path d="M8 10.5v3M6.5 12h3M16 11.5h.01M18 13.5h.01"/></svg>',
+Site:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg>'};
+function esc(t){return String(t).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+var G=document.getElementById("grade"),F=document.getElementById("filtros"),f="Todos";
+var io="IntersectionObserver"in window?new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("on");io.unobserve(e.target)}})},{threshold:.15}):null;
+function cont(t){return PROJETOS.filter(function(p){return p.tipo===t}).length}
+document.getElementById("nums").innerHTML=[[PROJETOS.length,"projetos"],[cont("App"),"apps"],[cont("Jogo"),"jogos"]].map(function(n){return"<div><b>"+n[0]+"</b><span>"+n[1]+"</span></div>"}).join("");
+document.getElementById("fita").innerHTML=PROJETOS.concat(PROJETOS).map(function(p){return"<span>"+esc(p.nome)+"<i>/</i></span>"}).join("");
+[["Todos","Todos"],["App","Apps"],["Jogo","Jogos"],["Site","Sites"]].forEach(function(t){
+ if(t[0]!=="Todos"&&!cont(t[0]))return;
+ var b=document.createElement("button");b.type="button";b.textContent=t[1];b.setAttribute("aria-pressed",t[0]===f);
+ b.onclick=function(){f=t[0];[].forEach.call(F.children,function(x){x.setAttribute("aria-pressed",x===b)});draw()};F.appendChild(b)});
+function draw(){
+ G.innerHTML=PROJETOS.filter(function(p){return f==="Todos"||p.tipo===f}).map(function(p,i){
+  var m='<span class="ic" aria-hidden="true">'+(IC[p.tipo]||IC.App)+'</span><span class="tx"><h3>'+esc(p.nome)+'</h3><span class="tipo">'+esc(p.tipo)+'</span></span>',st=' style="--d:-'+(i*.8)+'s"';
+  return'<li class="card">'+(p.url?'<button type="button" class="tile" data-n="'+PROJETOS.indexOf(p)+'"'+st+' aria-label="'+(p.tipo==="Jogo"?"Jogar ":"Abrir ")+esc(p.nome)+'">'+m+'<span class="go">'+(p.tipo==="Jogo"?"Jogar":"Abrir")+SETA+'</span></button>':'<div class="tile" aria-disabled="true"'+st+'>'+m+'<span class="go">Em breve</span></div>')+'</li>'}).join("");
+ [].forEach.call(G.children,function(c,i){c.style.transitionDelay=(i%3)*90+"ms";io?io.observe(c):c.classList.add("on")})}
+draw();
+/* palavra que troca no titulo */
+var T=document.getElementById("troca"),W=["apps","jogos","sites"],k=0;
+setInterval(function(){T.classList.add("sai");setTimeout(function(){k=(k+1)%W.length;T.textContent=W[k];T.classList.remove("sai")},300)},2400);
+/* rede de pontos (como os nos do logo), reage ao toque */
+(function(){var c=document.getElementById("rede"),x=c.getContext("2d"),N=[],P={x:-999,y:-999},w,h,r=devicePixelRatio||1;
+function dim(){w=c.clientWidth;h=c.clientHeight;c.width=w*r;c.height=h*r;x.setTransform(r,0,0,r,0,0);N=[];for(var i=0;i<Math.round(w*h/9000);i++)N.push({x:Math.random()*w,y:Math.random()*h,vx:(Math.random()-.5)*.35,vy:(Math.random()-.5)*.35})}
+function mv(e){var b=c.getBoundingClientRect(),t=e.touches?e.touches[0]:e;P.x=t.clientX-b.left;P.y=t.clientY-b.top}
+addEventListener("pointermove",mv);addEventListener("touchmove",mv,{passive:true});
+function loop(){x.clearRect(0,0,w,h);for(var i=0;i<N.length;i++){var a=N[i];a.x+=a.vx;a.y+=a.vy;if(a.x<0||a.x>w)a.vx*=-1;if(a.y<0||a.y>h)a.vy*=-1;
+var dx=P.x-a.x,dy=P.y-a.y,d=Math.hypot(dx,dy);if(d<140&&d>1){a.x+=dx/d*.6;a.y+=dy/d*.6}
+x.fillStyle="rgba(63,208,255,.8)";x.beginPath();x.arc(a.x,a.y,2,0,6.3);x.fill();
+for(var j=i+1;j<N.length;j++){var b=N[j],e=Math.hypot(a.x-b.x,a.y-b.y);if(e<110){x.strokeStyle="rgba(63,208,255,"+(.28*(1-e/110))+")";x.beginPath();x.moveTo(a.x,a.y);x.lineTo(b.x,b.y);x.stroke()}}}
+if(!matchMedia("(prefers-reduced-motion:reduce)").matches)requestAnimationFrame(loop)}
+dim();addEventListener("resize",dim);loop();if(matchMedia("(prefers-reduced-motion:reduce)").matches)loop()})();
+/* abre o app dentro do proprio site: o endereco nao aparece para o cliente */
+var V=document.getElementById("vis"),VF=document.getElementById("vf");
+function fechar(){V.hidden=true;VF.src="about:blank";document.body.classList.remove("vo")}
+G.addEventListener("click",function(e){var t=e.target.closest("button.tile");if(!t)return;var p=PROJETOS[t.dataset.n];
+ document.getElementById("vt").textContent=p.nome;VF.src=p.url;V.hidden=false;document.body.classList.add("vo");history.pushState({v:1},"")});
+document.getElementById("vx").onclick=function(){if(history.state&&history.state.v)history.back();else fechar()};
+addEventListener("popstate",function(){if(!V.hidden)fechar()});
+document.addEventListener("keydown",function(e){if(e.key==="Escape"&&!V.hidden)document.getElementById("vx").click()});
+document.getElementById("ano").textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
