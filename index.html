@@ -200,6 +200,8 @@ footer a:hover{color:#fff}
 .dest .vcap{text-align:center;font-size:.9rem;color:#b9cdee;margin-top:10px}
 @media(min-width:860px){.dest .wrap{grid-template-columns:1.15fr .85fr}}
 </style>
+<script data-goatcounter="https://appcalangodigital.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
 </head>
 <body>
 
@@ -423,8 +425,11 @@ var REDUZ=matchMedia("(prefers-reduced-motion:reduce)").matches;
 /* abre o projeto dentro do proprio site (o endereco nao aparece) e faz o botao voltar do celular fechar o app.
    Ordem importa: 1) cria a entrada do historico, 2) so entao cria o iframe novo (a 1a carga de um iframe novo nao
    cria entrada extra) e 3) ao fechar o iframe e removido, sem navegar. */
+/* contagem de acessos (GoatCounter): cada projeto aberto vira um evento "projeto/Nome" */
+function conta(nome,tipo){try{if(window.goatcounter&&goatcounter.count)goatcounter.count({path:(tipo||"projeto")+"/"+nome,title:nome,event:true})}catch(e){}}
 var V=document.getElementById("vis");
 function abrirApp(p){
+ conta(p.nome);
  document.getElementById("vt").textContent=p.nome;
  history.pushState({v:1},"","#projeto");
  var f=document.createElement("iframe");
@@ -432,6 +437,7 @@ function abrirApp(p){
  V.appendChild(f);V.hidden=false;document.body.classList.add("vo")}
 /* Resenha: nao abre o app dentro do site. Mostra o video e o aviso para baixar primeiro no celular. */
 function abrirInfo(p){
+ conta(p.nome);
  var cel=/android|iphone|ipad|ipod/i.test(navigator.userAgent);
  document.getElementById("vt").textContent=p.nome;
  history.pushState({v:1},"","#projeto");
@@ -450,7 +456,7 @@ function abrirInfo(p){
  V.appendChild(d);V.hidden=false;document.body.classList.add("vo");
  var ib=document.getElementById("ins-res");if(ib)ib.onclick=irResenha}
 /* o endereco do Resenha nao aparece no site: so o celular chega nele, pelo botao de instalar */
-function irResenha(){if(/android|iphone|ipad|ipod/i.test(navigator.userAgent))location.assign(atob("aHR0cHM6Ly9hcHBjYWxhbmdvZGlnaXRhbC5naXRodWIuaW8vcmVzZW5oYS8="))}
+function irResenha(){conta("Resenha APP","instalar");if(/android|iphone|ipad|ipod/i.test(navigator.userAgent))location.assign(atob("aHR0cHM6Ly9hcHBjYWxhbmdvZGlnaXRhbC5naXRodWIuaW8vcmVzZW5oYS8="))}
 function fechar(){
  var f=document.getElementById("vf");if(f)f.remove();
  V.hidden=true;document.body.classList.remove("vo")}
