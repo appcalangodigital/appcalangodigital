@@ -177,19 +177,6 @@ footer a:hover{color:#fff}
 #vf{flex:1;width:100%;border:0;background:#fff}
 
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
-/* destaque Resenha */
-.dest{background:linear-gradient(160deg,var(--navy),var(--navy-2));color:#fff;padding:56px 0}
-.dest .wrap{display:grid;gap:30px;grid-template-columns:1fr;align-items:center}
-.dest .kick{display:inline-block;background:#ffdf00;color:#002776;font-weight:800;font-size:.8rem;letter-spacing:.08em;padding:6px 14px;border-radius:20px;margin-bottom:14px}
-.dest h2{font-size:clamp(1.8rem,5vw,2.6rem);line-height:1.1}
-.dest .tx p{margin-top:12px;color:#dce8fa}
-.dest ul{margin:16px 0 22px;padding:0;list-style:none;display:grid;gap:8px;color:#fff}
-.dest li{padding-left:26px;position:relative}
-.dest li:before{content:"";position:absolute;left:0;top:.45em;width:14px;height:8px;border-left:3px solid var(--cyan);border-bottom:3px solid var(--cyan);transform:rotate(-45deg)}
-.dest .foto{width:100%;height:auto;border-radius:18px;display:block;margin-top:24px;box-shadow:0 14px 36px rgba(0,0,0,.4)}
-.dest video{width:100%;max-width:320px;margin:0 auto;display:block;border-radius:22px;background:#000;box-shadow:0 14px 36px rgba(0,0,0,.45)}
-.dest .vcap{text-align:center;font-size:.9rem;color:#b9cdee;margin-top:10px}
-@media(min-width:860px){.dest .wrap{grid-template-columns:1.15fr .85fr}}
 </style>
 </head>
 <body>
@@ -234,30 +221,6 @@ footer a:hover{color:#fff}
       </ul>
     </div>
   </div>
-
-  <section class="dest" id="resenha" aria-labelledby="t-res">
-    <div class="wrap">
-      <div class="tx">
-        <span class="kick">NOVO APP</span>
-        <h2 id="t-res">Resenha APP: o seu app de conversa</h2>
-        <p>Converse com seus contatos de um jeito simples e leve. As mensagens somem em 10 minutos e nada fica guardado.</p>
-        <ul>
-          <li>Instale no celular, como o WhatsApp</li>
-          <li>Cadastro só com nome e celular</li>
-          <li>Use também no computador, autorizado pelo seu celular</li>
-          <li>Chame o amigo com o som Nextel</li>
-        </ul>
-        <div class="acoes">
-          <a class="btn btn-wa" href="https://appcalangodigital.github.io/resenha/" target="_blank" rel="noopener">Instalar o Resenha</a>
-        </div>
-        <img class="foto" src="resenha-divulgacao.jpg" alt="Resenha APP: o seu app de conversa. Conecte-se e curta!" loading="lazy" width="1024" height="559">
-      </div>
-      <div>
-        <video controls playsinline preload="metadata" poster="resenha-video-capa.jpg" src="resenha-video.mp4"></video>
-        <p class="vcap">Veja o app abrindo, o cadastro e a primeira conversa</p>
-      </div>
-    </div>
-  </section>
 
   <section class="sec" id="servicos" aria-labelledby="t-serv">
     <div class="wrap">
@@ -335,7 +298,7 @@ footer a:hover{color:#fff}
 /* ===== EDITE AQUI: um item por projeto =====
    tipo: "App", "Jogo" ou "Site" | url: endereço ("" = Em breve) */
 var PROJETOS=[
- {nome:"Resenha APP",tipo:"App",desc:"App de conversa em que as mensagens somem em 10 minutos. Instale no celular e use também no computador.",url:"https://appcalangodigital.github.io/resenha/",externo:true},
+ {nome:"Resenha APP",tipo:"App",desc:"App de conversa em que as mensagens somem em 10 minutos. Instale primeiro no celular.",url:"https://appcalangodigital.github.io/resenha/",info:true},
  {nome:"M&L Lanches",tipo:"App",desc:"Cardápio e pedidos de delivery, com app do cliente e app do lojista.",url:"https://appcalangodigital.github.io/maraisalanches/"},
  {nome:"Controle Total",tipo:"App",desc:"Estoque, agendas, documentos e financeiro num só app. Teste grátis por 15 dias.",url:"https://appcalangodigital.github.io/gestao/"},
  {nome:"Cajazeiras Mall",tipo:"Site",desc:"Site que reúne o comércio do bairro Cajazeiras, em Fortaleza, com lojas, serviços e contato direto pelo WhatsApp.",url:"https://cajazeiras-mall.github.io/cajazeiras/"},
@@ -422,10 +385,28 @@ function abrirApp(p){
  var f=document.createElement("iframe");
  f.id="vf";f.title=p.nome;f.setAttribute("allow","fullscreen; autoplay; clipboard-write; microphone; camera");f.referrerPolicy="no-referrer";f.src=p.url;
  V.appendChild(f);V.hidden=false;document.body.classList.add("vo")}
+/* Resenha: nao abre o app dentro do site. Mostra o video e o aviso para baixar primeiro no celular. */
+function abrirInfo(p){
+ var cel=/android|iphone|ipad|ipod/i.test(navigator.userAgent);
+ document.getElementById("vt").textContent=p.nome;
+ history.pushState({v:1},"","#projeto");
+ var d=document.createElement("div");d.id="vf";
+ d.style.cssText="overflow:auto;background:var(--navy);color:#fff;padding:18px 16px 40px";
+ d.innerHTML='<div style="max-width:520px;margin:0 auto">'
+  +'<div style="background:#fff8cc;border-left:5px solid #ffdf00;color:#0a1b3a;padding:14px 16px;border-radius:0 12px 12px 0;line-height:1.45">'
+  +'<b style="font-size:1.15rem">Por favor, baixe primeiro no celular.</b><br>'
+  +'O Resenha só funciona depois de instalado no celular. Não é possível usar pelo computador sem antes passar pelo celular: o próprio celular autoriza a entrada no computador.'
+  +(cel?'':'<br><b>Abra este site no seu celular para instalar.</b>')+'</div>'
+  +(cel?'<a class="btn btn-wa" style="margin-top:14px;width:100%" href="'+esc(p.url)+'" target="_blank" rel="noopener">Instalar no celular</a>':'')
+  +'<video controls playsinline preload="metadata" poster="resenha-video-capa.jpg" src="resenha-video.mp4" style="width:100%;max-width:300px;display:block;margin:20px auto 0;border-radius:20px;background:#000"></video>'
+  +'<p style="text-align:center;color:#b9cdee;font-size:.9rem;margin-top:10px">Veja o app abrindo, o cadastro e a primeira conversa</p>'
+  +'<img src="resenha-divulgacao.jpg" alt="Resenha APP: o seu app de conversa. Conecte-se e curta!" width="1024" height="559" style="width:100%;height:auto;border-radius:16px;display:block;margin-top:20px">'
+  +'</div>';
+ V.appendChild(d);V.hidden=false;document.body.classList.add("vo")}
 function fechar(){
  var f=document.getElementById("vf");if(f)f.remove();
  V.hidden=true;document.body.classList.remove("vo")}
-G.addEventListener("click",function(e){var t=e.target.closest("button.lin");if(!t)return;var p=PROJETOS[t.dataset.n];if(p.externo)window.open(p.url,"_blank","noopener");else abrirApp(p)});
+G.addEventListener("click",function(e){var t=e.target.closest("button.lin");if(!t)return;var p=PROJETOS[t.dataset.n];if(p.info)abrirInfo(p);else abrirApp(p)});
 document.getElementById("vx").onclick=function(){if(history.state&&history.state.v)history.back();else fechar()};
 addEventListener("popstate",function(){if(!V.hidden)fechar()});
 document.addEventListener("keydown",function(e){if(e.key==="Escape"&&!V.hidden)document.getElementById("vx").click()});
