@@ -334,7 +334,7 @@ footer a:hover{color:#fff}
 /* ===== EDITE AQUI: um item por projeto =====
    tipo: "App", "Jogo" ou "Site" | url: endereço ("" = Em breve) */
 var PROJETOS=[
- {nome:"Resenha APP",tipo:"App",desc:"App de conversa em que as mensagens somem em 10 minutos. Instale primeiro no celular.",url:"https://appcalangodigital.github.io/resenha/",info:true},
+ {nome:"Resenha APP",tipo:"App",desc:"App de conversa em que as mensagens somem em 10 minutos. Instale primeiro no celular.",url:"resenha",info:true},
  {nome:"M&L Lanches",tipo:"App",desc:"Cardápio e pedidos de delivery, com app do cliente e app do lojista.",url:"https://appcalangodigital.github.io/maraisalanches/"},
  {nome:"Controle Total",tipo:"App",desc:"Estoque, agendas, documentos e financeiro num só app. Teste grátis por 15 dias.",url:"https://appcalangodigital.github.io/gestao/"},
  {nome:"Cajazeiras Mall",tipo:"Site",desc:"Site que reúne o comércio do bairro Cajazeiras, em Fortaleza, com lojas, serviços e contato direto pelo WhatsApp.",url:"https://cajazeiras-mall.github.io/cajazeiras/"},
@@ -433,12 +433,15 @@ function abrirInfo(p){
   +'<b style="font-size:1.15rem">Por favor, baixe primeiro no celular.</b><br>'
   +'O Resenha só funciona depois de instalado no celular. Não é possível usar pelo computador sem antes passar pelo celular: o próprio celular autoriza a entrada no computador.'
   +(cel?'':'<br><b>Abra este site no seu celular para instalar.</b>')+'</div>'
-  +(cel?'<a class="btn btn-wa" style="margin-top:14px;width:100%" href="'+esc(p.url)+'" target="_blank" rel="noopener">Instalar no celular</a>':'')
+  +(cel?'<button type="button" id="ins-res" class="btn btn-wa" style="margin-top:14px;width:100%">Instalar no celular</button>':'')
   +'<video controls playsinline preload="metadata" poster="resenha-video-capa.jpg" src="resenha-video.mp4" style="width:100%;max-width:300px;display:block;margin:20px auto 0;border-radius:20px;background:#000"></video>'
   +'<p style="text-align:center;color:#b9cdee;font-size:.9rem;margin-top:10px">Veja o app abrindo, o cadastro e a primeira conversa</p>'
   +'<img src="resenha-divulgacao.jpg" alt="Resenha APP: o seu app de conversa. Conecte-se e curta!" width="1024" height="559" style="width:100%;height:auto;border-radius:16px;display:block;margin-top:20px">'
   +'</div>';
- V.appendChild(d);V.hidden=false;document.body.classList.add("vo")}
+ V.appendChild(d);V.hidden=false;document.body.classList.add("vo");
+ var ib=document.getElementById("ins-res");if(ib)ib.onclick=irResenha}
+/* o endereco do Resenha nao aparece no site: so o celular chega nele, pelo botao de instalar */
+function irResenha(){if(/android|iphone|ipad|ipod/i.test(navigator.userAgent))location.assign(atob("aHR0cHM6Ly9hcHBjYWxhbmdvZGlnaXRhbC5naXRodWIuaW8vcmVzZW5oYS8="))}
 function fechar(){
  var f=document.getElementById("vf");if(f)f.remove();
  V.hidden=true;document.body.classList.remove("vo")}
