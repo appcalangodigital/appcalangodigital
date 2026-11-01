@@ -177,6 +177,20 @@ footer a:hover{color:#fff}
 #vf{flex:1;width:100%;border:0;background:#fff}
 
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+/* destaque Resenha */
+.dest{background:linear-gradient(160deg,var(--navy),var(--navy-2));color:#fff;padding:56px 0}
+.dest .wrap{display:grid;gap:30px;grid-template-columns:1fr;align-items:center}
+.dest .kick{display:inline-block;background:#ffdf00;color:#002776;font-weight:800;font-size:.8rem;letter-spacing:.08em;padding:6px 14px;border-radius:20px;margin-bottom:14px}
+.dest h2{font-size:clamp(1.8rem,5vw,2.6rem);line-height:1.1}
+.dest .tx p{margin-top:12px;color:#dce8fa}
+.dest ul{margin:16px 0 18px;padding:0;list-style:none;display:grid;gap:8px;color:#fff}
+.dest li{padding-left:26px;position:relative}
+.dest li:before{content:"";position:absolute;left:0;top:.45em;width:14px;height:8px;border-left:3px solid var(--cyan);border-bottom:3px solid var(--cyan);transform:rotate(-45deg)}
+.dest .aviso{background:#fff8cc;border-left:5px solid #ffdf00;color:#0a1b3a;padding:12px 14px;border-radius:0 12px 12px 0;line-height:1.45;margin-bottom:14px}
+.dest .foto{width:100%;height:auto;border-radius:18px;display:block;margin-top:24px;box-shadow:0 14px 36px rgba(0,0,0,.4)}
+.dest video{width:100%;max-width:320px;margin:0 auto;display:block;border-radius:22px;background:#000;box-shadow:0 14px 36px rgba(0,0,0,.45)}
+.dest .vcap{text-align:center;font-size:.9rem;color:#b9cdee;margin-top:10px}
+@media(min-width:860px){.dest .wrap{grid-template-columns:1.15fr .85fr}}
 </style>
 </head>
 <body>
@@ -221,6 +235,28 @@ footer a:hover{color:#fff}
       </ul>
     </div>
   </div>
+
+  <section class="dest" id="resenha" aria-labelledby="t-res">
+    <div class="wrap">
+      <div class="tx">
+        <span class="kick">NOVO APP</span>
+        <h2 id="t-res">Resenha APP: o seu app de conversa</h2>
+        <p>Converse com seus contatos de um jeito simples e leve. As mensagens somem em 10 minutos e nada fica guardado.</p>
+        <ul>
+          <li>Instale no celular, como o WhatsApp</li>
+          <li>Cadastro só com nome e celular</li>
+          <li>Use também no computador, autorizado pelo seu celular</li>
+          <li>Chame o amigo com o som Nextel</li>
+        </ul>
+        <div class="acoes" id="res-btn"><a class="btn btn-wa" href="https://appcalangodigital.github.io/resenha/" target="_blank" rel="noopener">Baixar app</a></div>
+        <img class="foto" src="resenha-divulgacao.jpg" alt="Resenha APP: o seu app de conversa. Conecte-se e curta!" loading="lazy" width="1024" height="559">
+      </div>
+      <div>
+        <video controls playsinline preload="metadata" poster="resenha-video-capa.jpg" src="resenha-video.mp4"></video>
+        <p class="vcap">Veja o app abrindo, o cadastro e a primeira conversa</p>
+      </div>
+    </div>
+  </section>
 
   <section class="sec" id="servicos" aria-labelledby="t-serv">
     <div class="wrap">
