@@ -248,7 +248,7 @@ footer a:hover{color:#fff}
           <li>Use também no computador, autorizado pelo seu celular</li>
           <li>Chame o amigo com o som Nextel</li>
         </ul>
-        <div class="acoes" id="res-btn"><a class="btn btn-wa" href="https://appcalangodigital.github.io/resenha/" target="_blank" rel="noopener">Baixar app</a></div>
+        <div class="acoes" id="res-btn"><button type="button" class="btn btn-wa" id="baixar-res">Baixar app</button></div>
         <img class="foto" src="resenha-divulgacao.jpg" alt="Resenha APP: o seu app de conversa. Conecte-se e curta!" loading="lazy" width="1024" height="559">
       </div>
       <div>
@@ -442,6 +442,8 @@ function abrirInfo(p){
 function fechar(){
  var f=document.getElementById("vf");if(f)f.remove();
  V.hidden=true;document.body.classList.remove("vo")}
+/* botao Baixar app da secao Resenha: abre a mesma tela de instrucoes do projeto (computador so entra pelo celular) */
+document.getElementById("baixar-res").onclick=function(){var p=PROJETOS.filter(function(x){return x.info})[0];if(p)abrirInfo(p)};
 G.addEventListener("click",function(e){var t=e.target.closest("button.lin");if(!t)return;var p=PROJETOS[t.dataset.n];if(p.info)abrirInfo(p);else abrirApp(p)});
 document.getElementById("vx").onclick=function(){if(history.state&&history.state.v)history.back();else fechar()};
 addEventListener("popstate",function(){if(!V.hidden)fechar()});
